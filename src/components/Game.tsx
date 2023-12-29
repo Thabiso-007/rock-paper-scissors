@@ -23,26 +23,27 @@ const Game: FC<GameProps> = ({ score, myChoice, setScore }: GameProps): React.Re
   }, []);
 
   const Result = () => {
+    let result = "draw"; // Default result is a draw
+
     if (myChoice === "rock" && house === "scissors") {
-      setPlayerWin("win");
-      setScore((prevScore) => prevScore + 1);
+      result = "win";
     } else if (myChoice === "rock" && house === "paper") {
-      setPlayerWin("lose");
-      setScore((prevScore) => prevScore - 1);
+      result = "lose";
     } else if (myChoice === "scissors" && house === "paper") {
-      setPlayerWin("win");
-      setScore((prevScore) => prevScore + 1);
+      result = "win";
     } else if (myChoice === "scissors" && house === "rock") {
-      setPlayerWin("lose");
-      setScore((prevScore) => prevScore - 1);
+      result = "lose";
     } else if (myChoice === "paper" && house === "rock") {
-      setPlayerWin("win");
-      setScore((prevScore) => prevScore + 1);
+      result = "win";
     } else if (myChoice === "paper" && house === "scissors") {
-      setPlayerWin("lose");
-      setScore((prevScore) => prevScore - 1);
-    } else {
-      setPlayerWin("draw");
+      result = "lose";
+    }
+
+    setPlayerWin(result);
+
+    // Update score only if the result is a win or lose
+    if (result === "win" || result === "lose") {
+      setScore((prevScore) => (result === "win" ? prevScore + 1 : prevScore - 1));
     }
   };
 
@@ -50,22 +51,22 @@ const Game: FC<GameProps> = ({ score, myChoice, setScore }: GameProps): React.Re
     const timer = counter > 0 ? setInterval(() => {
       setCounter((prevCounter) => prevCounter - 1);
     }, 1000) : Result();
-  
+
     return () => {
-      if (typeof timer === 'number') {
+      if (timer) {
         clearInterval(timer);
       }
     };
-  }, [counter, house, Result]);
+  }, [counter, house]);
+
 
   return (
     <div className="game">
       <div className="game__you">
         <span className="text">You Picked</span>
         <div
-          className={`icon icon--${myChoice} ${
-            playerWin === "win" ? `icon icon--${myChoice}--winner` : ""
-          }`}
+          className={`icon icon--${myChoice} ${playerWin === "win" ? `icon icon--${myChoice}--winner` : ""
+            }`}
         ></div>
       </div>
       {playerWin === "win" && (
@@ -97,9 +98,8 @@ const Game: FC<GameProps> = ({ score, myChoice, setScore }: GameProps): React.Re
         <span className="text">The House Picked</span>
         {counter === 0 ? (
           <div
-            className={`icon icon--${house} ${
-              playerWin === "lose" ? `icon icon--${house}--winner` : ""
-            }`}
+            className={`icon icon--${house} ${playerWin === "lose" ? `icon icon--${house}--winner` : ""
+              }`}
           ></div>
         ) : (
           <div className="counter">{counter}</div>
