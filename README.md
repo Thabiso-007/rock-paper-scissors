@@ -9,8 +9,7 @@ Welcome to the Rock Paper Scissors React Game! This simple game allows users to 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+-
 
 ## Demo
 
@@ -37,7 +36,7 @@ Before you begin, ensure you have the following installed on your machine:
    ```bash
    git clone https://github.com/Thabiso-007/rock-paper-scissors.git
 
-###
+### Usage
 
 1. cd rock-paper-scissors
 2. npm install 
