@@ -3,17 +3,11 @@
 Welcome to the Rock Paper Scissors React Game! This simple game allows users to play the classic Rock, Paper, Scissors game against the computer.
 
 ## Table of Contents
-- [Demo](#demo)
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
--
-
-## Demo
-
-Include a link to a live demo or showcase screenshots or gifs to demonstrate your game.
 
 ## Features
 
