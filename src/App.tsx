@@ -1,13 +1,11 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
 import Play from "./components/Play";
 import Game from "./components/Game";
-import Footer from "./components/Footer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-interface AppProps { }
-
-function App({ }: AppProps): React.ReactElement {
+function App(): React.ReactElement {
   const [myChoice, setMyChoice] = useState<string>("");
   const [score, setScore] = useState<number>(0);
 

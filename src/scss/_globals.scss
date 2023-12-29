@@ -1,22 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
 
-
-*,*::before,*::after{
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-body{
+body {
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #fff;
-    background:$background-gradient;
+    background: $background-gradient;
     text-align: center;
     box-sizing: border-box;
+    font-size: 16px; // Set a base font size for better responsiveness
+
+    // Adjust background gradient for smaller screens if needed
+    // @media screen and (max-width: 768px) {
+    //     background: $background-gradient-mobile;
+    // }
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem; // Add some padding for better spacing on small screens
+
+    // Adjust layout for smaller screens
+    @media screen and (max-width: 768px) {
+        padding: 0.5rem; // Further reduce padding for smaller screens
+    }
 }
